@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey" : "project_vidly_private_key",
+    "env": "project_vidly_env"
+}
