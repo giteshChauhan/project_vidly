@@ -1,6 +1,6 @@
 const helmet = require("helmet");
 const compression = require("compression");
-const cors = reqiure("cors");
+const cors = require("cors");
 
 module.exports = function (app) {
   app.use(helmet());
