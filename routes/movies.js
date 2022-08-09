@@ -65,7 +65,7 @@ router.put("/:id", async (req, res) => {
   res.send(movie);
 });
 
-router.delete(":id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id))
     return res.status(400).send("Invalid Id");
   const movie = await Movies.findByIdAndRemove(req.params.id);
