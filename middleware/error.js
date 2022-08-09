@@ -1,7 +1,7 @@
-const {logger }= require('../logger/');
+const { logger } = require("../logger/");
 
-module.exports = function(err,req,res,next){
-    logger.error(err.message);
+module.exports = function (err, req, res, next) {
+  logger.error(err.message);
 
-    res.send(500).send('Something failed.');
-}
+  res.status(500).send("Something failed.");
+};
