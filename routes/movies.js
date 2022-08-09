@@ -13,7 +13,7 @@ router.get("/:id", async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id))
     return res.status(400).send("Invalid Id");
   const movie = await Movies.findById(req.params.id).select(
-    "title numberInStock dailyRentalRate genre.name -_id"
+    "title numberInStock dailyRentalRate genre.name genre._id -_id"
   );
   if (!movie) return res.send("No such ID exists");
   res.send(movie);
