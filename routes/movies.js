@@ -52,10 +52,6 @@ router.put("/:id", async (req, res) => {
     mongoose.Types.ObjectId(req.params.id),
     {
       title: req.body.title,
-      genre: {
-        _id: newGenre._id,
-        name: newGenre.name,
-      },
       numberInStock: req.body.numberInStock,
       dailyRentalRate: req.body.dailyRentalRate,
     },
