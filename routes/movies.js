@@ -45,17 +45,14 @@ router.put("/:id", async (req, res) => {
   const { error } = validate(req.body);
   if (error) res.status(400).send(error.details[0].message);
 
-  const newGenre = Genre.findById(req.body.genreId);
+  const newGenre = Genre.findById(mongoose.Types.ObjectId(req.body.genreId));
   if (!newGenre) res.status(400).send("Invalid genre ID");
 
   const movie = Movies.findByIdAndUpdate(
-    req.params.id,
+    mongoose.Types.ObjectId(req.params.id),
     {
       title: req.body.title,
-      genre: {
-        _id: newGenre._id,
-        name: newGenre.name,
-      },
+      genre: newGenre,
       numberInStock: req.body.numberInStock,
       dailyRentalRate: req.body.dailyRentalRate,
     },
