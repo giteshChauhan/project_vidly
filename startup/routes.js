@@ -16,7 +16,7 @@ module.exports = function (app) {
   app.use(cors());
   app.use("/api/genres", [auth, admin], genres);
   app.use("/api/customers", customers);
-  app.use("/api/movies", [auth, admin], movies);
+  app.use("/api/movies", movies);
   app.use("/api/rentals", auth, rentals);
   app.use("/api/users", users);
   app.use("/api/login", login);
