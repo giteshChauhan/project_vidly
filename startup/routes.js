@@ -9,10 +9,15 @@ const login = require("../routes/login");
 const auth = require("../middleware/auth");
 const error = require("../middleware/error");
 
+const corsOptions = {
+  origin: "https://projectvidly.netlify.app",
+  optionsSuccessStatus: 200,
+};
+
 module.exports = function (app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(cors());
+  app.use(cors(corsOptions));
   app.use("/api/genres", genres);
   app.use("/api/customers", customers);
   app.use("/api/movies", movies);
