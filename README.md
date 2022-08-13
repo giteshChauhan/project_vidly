@@ -1,5 +1,10 @@
 <h1>project_vidly</h1>
 
+<h3>Frontend</h3>
+
+-  Code: https://github.com/giteshChauhan/project_vidly_frontend
+-  What does this app for?: https://github.com/giteshChauhan/project_vidly_frontend
+
 <h3>About:</h3>
 
 - Learnings from <b>MERN</b> have been put to this project.
