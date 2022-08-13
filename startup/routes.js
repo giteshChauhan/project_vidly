@@ -7,19 +7,16 @@ const rentals = require("../routes/rentals");
 const users = require("../routes/users");
 const login = require("../routes/login");
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const error = require("../middleware/error");
-
-const corsOptions = {
-  origin: "https://projectvidly.netlify.app",
-  optionsSuccessStatus: 200,
-};
+const allowCors = require("../middleware/cors");
 
 module.exports = function (app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(cors(corsOptions));
+  app.use(allowCors());
   app.use("/api/genres", genres);
-  app.use("/api/customers", customers);
+  app.use("/api/customers", [auth, admin], customers);
   app.use("/api/movies", movies);
   app.use("/api/rentals", auth, rentals);
   app.use("/api/users", users);
