@@ -15,7 +15,7 @@
 
 <h3>APIs:</h3>
 
-<ul>
+<ol>
 <li><pre> POST/api/register : to register an user. Returns user-token.
 Needs: {
     "name": "",
@@ -28,6 +28,7 @@ Needs: {
     "pasword": ""
 }</pre></li>
 
+<li><ul>
 <li><pre> GET/api/movies : to get all listed movies.
 Needs: {}</pre></li>
 <li><pre> GET:id/api/movies : to get movie by id.
@@ -50,7 +51,9 @@ Body:{
 }</pre></li>
 <li><pre> DELETE/api/movies : to delete a movie by id. Only admins can access.
 Needs: user-token</pre></li>
+</ul></li>
 
+<li><ul>
 <li><pre> GET/api/genres : to get all listed genres.
 Needs: {}</pre></li>
 <li><pre> GET:id/api/genres : to get genre by id.
@@ -67,7 +70,9 @@ Body: {
 }</pre></li>
 <li><pre> DELETE/api/genres : to delete a genre by id. Only admins can access.
 Needs: user-token</pre></li>
+</ul></li>
 <!-- 
+<li><ul>
 <li><pre> GET:id/api/rentals : to get rental by id.
 Needs: user-token</pre></li>
 <li><pre> POST/api/rentals : to add new rental into users collection.
@@ -76,6 +81,8 @@ Body:{
     "customerId" : "",
     "movieId" : ""
 }</pre></li>
+</ul></li>
+<li><ul>
 <li><pre> GET/api/customers : to get all listed customers.Only admins can access.
 Needs: {}</pre></li>
 <li><pre> GET:id/api/customers : to get customer by id.Only admins can access.
@@ -86,5 +93,6 @@ Needs: user-token</pre></li>
 Needs: user-token</pre></li>
 <li><pre> DELETE/api/customers : to delete a customer by id. Only admins can access.
 Needs: user-token</pre></li>
+</ul></li>
  -->
-</ul>
+</ol>
