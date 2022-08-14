@@ -6,7 +6,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const genres = await Genre.find().sort("name");
+  const genres = await Genre.find();
   res.send(genres);
 });
 
@@ -22,7 +22,10 @@ router.post("/", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const genre = new Genre({ name: req.body.name });
+  let genre = await Genre.findOne({ name: req.body.name });
+  if (genre) return res.status(400).send("Genre already exits.");
+
+  genre = new Genre({ name: req.body.name });
   await genre.save();
   res.send(genre);
 });
@@ -33,7 +36,10 @@ router.put("/:id", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(404).send(error.details[0].message);
 
-  const genre = await Genre.findByIdAndUpdate(
+  let genre = await Genre.findOne({ name: req.body.name });
+  if (genre) return res.status(400).send("Genre already exits.");
+
+  genre = await Genre.findByIdAndUpdate(
     mongoose.Types.ObjectId(req.params.id),
     { name: req.body.name },
     {
