@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 3,
-    maxlength: 50,
+    maxlength: 14,
   },
   email: {
     type: String,
@@ -44,7 +44,7 @@ const Users = mongoose.model("user", userSchema);
 
 function validateUser(user) {
   const schema = Joi.object({
-    name: Joi.string().required().min(3).max(50),
+    name: Joi.string().required().min(3).max(14),
     email: Joi.string().required().min(11).max(255).email(),
     password: passwordComplexity().required(),
   });
