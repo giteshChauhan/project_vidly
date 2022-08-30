@@ -18,6 +18,10 @@
 - As backend is deployed on heroku and frontend on netlify, therefore <b>CORS</b> policy is resolved. Now only
   this https://projectvidly.netlify.app frontend can use herokus backend
 
+<h3>Config:</h3>Set custom environment variables.
+<pre><ol><li>project_vidly_env=""</li>
+<li>project_vidly_db=""</li>
+<li>project_vidly_private_key=""</li></ol></pre>
 <h3>APIs:</h3>
 
 <ol>
