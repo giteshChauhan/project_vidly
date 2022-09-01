@@ -15,7 +15,7 @@ router.get("/:id", [auth, admin], async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id))
     return res.status(400).send("Invalid Id");
   const movie = await Movies.findById(req.params.id).select(
-    "title year rating genre.name genre._id yt_id imdb_id -_id"
+    "title year rating genre.name genre._id yt_id imdb_id contentType -_id"
   );
   if (!movie) return res.send("No such ID exists");
   res.send(movie);
@@ -38,6 +38,7 @@ router.post("/", [auth, admin], async (req, res) => {
     rating: req.body.rating,
     yt_id: req.body.yt_id,
     imdb_id: req.body.imdb_id,
+    contentType: req.body.contentType,
   });
   await movie.save();
   res.send(movie);
@@ -64,6 +65,7 @@ router.put("/:id", [auth, admin], async (req, res) => {
       year: req.body.year,
       yt_id: req.body.yt_id,
       imdb_id: req.body.imdb_id,
+      contentType: req.body.contentType,
     },
     { new: true }
   );
