@@ -15,6 +15,7 @@ const movieSchema = new mongoose.Schema({
   rating: { type: Number, required: true, min: 0, max: 10 },
   yt_id: { type: String, required: true, length: 11 },
   imdb_id: { type: String, required: true },
+  contentType: { type: String, required: true },
 });
 
 const Movies = mongoose.model("movie", movieSchema);
@@ -27,6 +28,7 @@ function validateMovie(movie) {
     year: Joi.number().min(1950).max(2024).required(),
     yt_id: Joi.string().length(11).required(),
     imdb_id: Joi.string().min(9).max(10).required(),
+    contentType: Joi.string().required(),
   });
   return schema.validate(movie);
 }
