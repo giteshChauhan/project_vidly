@@ -2,8 +2,8 @@
 
 <h3>Frontend</h3>
 
--  Code: https://github.com/giteshChauhan/project_vidly_frontend
--  What does this app for?: https://github.com/giteshChauhan/project_vidly_frontend
+- Code: https://github.com/giteshChauhan/project_vidly_frontend
+- What does this app for?: https://github.com/giteshChauhan/project_vidly_frontend
 
 <h3>About:</h3>
 
@@ -47,16 +47,26 @@ Header: user-token
 Body:{
     "title": "",
     "genreId": "",
-    "numberInStock" : "",
-    "dailyRentalRate" : "",
+    "yt_id": "",
+    "imdb_id": "",
+    "year": "",
+    "rating": "",
+    "cinema": "",
+    "contentType": "",
+    "thumbnailUrl": "",
 } </pre></li>
 <li><pre> PUT:id/api/movies : to update a movie by id. Only admins can access.
 Header: user-token
 Body:{
     "title": "",
     "genreId": "",
-    "numberInStock" : "",
-    "dailyRentalRate" : "",
+    "yt_id": "",
+    "imdb_id": "",
+    "year": "",
+    "rating": "",
+    "cinema": "",
+    "contentType": "",
+    "thumbnailUrl": "",
 }</pre></li>
 <li><pre> DELETE/api/movies : to delete a movie by id. Only admins can access.
 Needs: user-token</pre></li>
@@ -80,28 +90,43 @@ Body: {
 <li><pre> DELETE/api/genres : to delete a genre by id. Only admins can access.
 Needs: user-token</pre></li>
 </ul></li>
-<!-- 
+
 <li><ul>
-<li><pre> GET:id/api/rentals : to get rental by id.
-Needs: user-token</pre></li>
-<li><pre> POST/api/rentals : to add new rental into users collection.
-Header: user-token
-Body:{
-    "customerId" : "",
-    "movieId" : ""
-}</pre></li>
-</ul></li>
-<li><ul>
-<li><pre> GET/api/customers : to get all listed customers.Only admins can access.
+<li><pre> GET/api/cinema : to get all listed cinema.
 Needs: {}</pre></li>
-<li><pre> GET:id/api/customers : to get customer by id.Only admins can access.
+<li><pre> GET:id/api/cinema : to get genre by id.
 Needs: user-token</pre></li>
-<li><pre> POST/api/customers : to add new customer into database. Only admins can access.
-Needs: user-token</pre></li>
-<li><pre> PUT:id/api/customers : to update a customer by id. Only admins can access.
-Needs: user-token</pre></li>
-<li><pre> DELETE/api/customers : to delete a customer by id. Only admins can access.
+<li><pre> POST/api/cinema : to add new genre into database. Only admins can access.
+Header: user-token
+Body: {
+    "name" : ""
+}</pre></li>
+<li><pre> PUT:id/api/cinema : to update a genre by id. Only admins can access.
+Header: user-token
+Body: {
+    "name" : ""
+}</pre></li>
+<li><pre> DELETE/api/cinema : to delete a genre by id. Only admins can access.
 Needs: user-token</pre></li>
 </ul></li>
- -->
+
+<li><ul>
+<li><pre> GET/api/contenttype : to get all listed contenttype.
+Needs: {}</pre></li>
+<li><pre> GET:id/api/contenttype : to get genre by id.
+Needs: user-token</pre></li>
+<li><pre> POST/api/contenttype : to add new genre into database. Only admins can access.
+Header: user-token
+Body: {
+    "name" : ""
+}</pre></li>
+<li><pre> PUT:id/api/contenttype : to update a genre by id. Only admins can access.
+Header: user-token
+Body: {
+    "name" : ""
+}</pre></li>
+<li><pre> DELETE/api/contenttype : to delete a genre by id. Only admins can access.
+Needs: user-token</pre></li>
+</ul></li>
+
 </ol>
