@@ -12,6 +12,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  thumbnailUrl: { type: String, required: true },
   genre: { type: genreSchema, required: true },
   cinema: { type: cinemaSchema, required: true },
   contentType: { type: contentTypeSchema, required: true },
@@ -26,6 +27,7 @@ const Movies = mongoose.model("movie", movieSchema);
 function validateMovie(movie) {
   const schema = Joi.object({
     title: Joi.string().min(3).max(30).required(),
+    thumbnailUrl: Joi.string().required(),
     genreId: Joi.objectId().required(),
     cinemaId: Joi.objectId().required(),
     contentTypeId: Joi.objectId().required(),
