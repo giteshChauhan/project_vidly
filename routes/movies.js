@@ -13,12 +13,10 @@ router.get("/", async (req, res) => {
   res.send(movies);
 });
 
-router.get("/:id", [auth, admin], async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id))
     return res.status(400).send("Invalid Id");
-  const movie = await Movies.findById(req.params.id).select(
-    "title year rating genre.name genre._id yt_id imdb_id contentType._id cinema._id contentType.name cinema.name thumbnailUrl -_id"
-  );
+  const movie = await Movies.findById(req.params.id);
   if (!movie) return res.send("No such ID exists");
   res.send(movie);
 });
