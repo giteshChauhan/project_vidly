@@ -2,12 +2,13 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const { Users, validate } = require("../models/users");
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const _ = require("lodash");
 const router = express.Router();
 
-router.get("/me", auth, async (req, res) => {
-  const user = await Users.findById(req.user._id).select("-password");
-  res.send(user);
+router.get("/", [auth, admin], async (req, res) => {
+  const users = await Users.find().select(" -userMetaInfo -password");
+  res.send(users);
 });
 
 router.post("/", async (req, res) => {
@@ -17,7 +18,9 @@ router.post("/", async (req, res) => {
   let user = await Users.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered");
 
-  user = new Users(_.pick(req.body, ["name", "email", "password"]));
+  user = new Users(
+    _.pick(req.body, ["name", "email", "password", "ip", "os", "userMetaInfo"])
+  );
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
