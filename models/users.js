@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
     minlength: 8,
     maxlength: 1024,
   },
+  ip: { type: String, required: true },
+  os: { type: String, required: true },
+  userMetaInfo: { type: Object, required: true },
   isAdmin: { type: Boolean, default: false },
 });
 
@@ -47,6 +50,9 @@ function validateUser(user) {
     name: Joi.string().required().min(3).max(14),
     email: Joi.string().required().min(11).max(255).email(),
     password: passwordComplexity().required(),
+    ip: Joi.string().required(),
+    os: Joi.string().required(),
+    userMetaInfo: Joi.object().required(),
   });
   return schema.validate(user);
 }
