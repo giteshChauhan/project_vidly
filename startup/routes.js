@@ -7,6 +7,7 @@ const movies = require("../routes/movies");
 const watchLater = require("../routes/watchLater");
 const history = require("../routes/history");
 const users = require("../routes/users");
+const feedback = require("../routes/feedback");
 const login = require("../routes/login");
 const auth = require("../middleware/auth");
 const error = require("../middleware/error");
@@ -16,6 +17,7 @@ module.exports = function (app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(allowCors());
+  app.use("/api/feedback", feedback);
   app.use("/api/genres", genres);
   app.use("/api/cinema", cinema);
   app.use("/api/contentType", contentType);
