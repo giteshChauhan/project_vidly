@@ -13,7 +13,7 @@ router.get("/all", [auth, admin], async (req, res) => {
 router.get("/", auth, async (req, res) => {
   const email = req.user.email;
   const feedback = await Feedback.find({ email });
-  if (feedback) return res.status(200).send(feedback);
+  if (feedback) return res.status(200).send(feedback[0].feedbacks);
   res.status(200).send([]);
 });
 
