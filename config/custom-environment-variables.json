@@ -1,5 +1,7 @@
 {
-    "jwtPrivateKey" : "project_vidly_private_key",
-    "env": "project_vidly_env",
-    "db": "project_vidly_db"
+  "jwtPrivateKey": "project_vidly_private_key",
+  "env": "project_vidly_env",
+  "db": "project_vidly_db",
+  "email": "project_vidly_email",
+  "pass": "project_vidly_pass"
 }

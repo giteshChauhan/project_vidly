@@ -1,5 +1,7 @@
 {
-    "jwtPrivateKey" : "",
-    "env": "",
-    "db": ""
+  "jwtPrivateKey": "",
+  "env": "",
+  "db": "",
+  "email": "",
+  "pass": ""
 }
