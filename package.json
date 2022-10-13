@@ -27,6 +27,8 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mongoose": "^6.3.5",
+    "nodemailer": "^6.8.0",
+    "nodemailer-express-handlebars": "^5.0.0",
     "winston": "^3.7.2"
   }
 }
