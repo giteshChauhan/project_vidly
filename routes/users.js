@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const { Users, validate } = require("../models/users");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const main = require("../utils/mail");
 const _ = require("lodash");
 const router = express.Router();
 
@@ -25,6 +26,7 @@ router.post("/", async (req, res) => {
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
 
+  main(req.body.email, `Welcome ${req.body.name}`).catch(console.error);
   const token = user.generateAuthToken();
   res
     .header("x-auth-token", token)
