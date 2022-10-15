@@ -1,4 +1,4 @@
-<h1>project_vidly</h1>
+<h1>project_vidly : Backend Service</h1>
 
 <h3>Frontend</h3>
 
@@ -21,7 +21,9 @@
 <h3>Config:</h3>Set custom environment variables.
 <pre><ol><li>project_vidly_env=""</li>
 <li>project_vidly_db=""</li>
-<li>project_vidly_private_key=""</li></ol></pre>
+<li>project_vidly_private_key=""</li>
+<li>project_vidly_email=""</li>
+<li>project_vidly_pass=""</li></ol></pre>
 <h3>APIs:</h3>
 
 <ol>
@@ -29,7 +31,10 @@
 Needs: {
     "name": "",
     "email": "",
-    "pasword": ""
+    "pasword": "",
+    "ip": "",
+    "userMetaInfo": "",
+    "os": "",
 }</pre></li>
 <li><pre> POST/api/login : to login an user. Returns user-token.
 Needs: {
@@ -128,5 +133,43 @@ Body: {
 <li><pre> DELETE/api/contenttype : to delete a genre by id. Only admins can access.
 Needs: user-token</pre></li>
 </ul></li>
+
+<li><ul>
+<li><pre> GET/api/history : to get user's history.
+Needs: user-token</pre></li>
+<li><pre> POST/api/history : to post each movie played to history.
+Header: user-token
+Body: {
+    "movieId": "",
+}</pre></li>
+</ul></li>
+
+<li><ul>
+<li><pre> GET/api/watchlater : to get user's watch later movies.
+Needs: user-token</pre></li>
+<li><pre> POST/api/watchlater : to post user's movie to watch later.
+Header: user-token
+Body: {
+    "movieId": "",
+}</pre></li>
+</ul></li>
+
+<li><ul>
+<li><pre> GET/api/feedback : to get user's feedback.
+Needs: user-token</pre></li>
+<li><pre> GET/api/feedback/all : to get all user's sent feedbacks. Only admins can access.
+Needs: user-token</pre></li>
+<li><pre> POST/api/feedback : to post user's feedback.
+Body: {
+    "email": "",
+    "feedback": "",
+    "ip": "",
+}
+</ul></li>
+<h3>Views & utils:</h3>
+<ul>
+<li><pre>views/welcomeMessage.handlebars : handlebar template sent via email when new user registers'.</pre</li>
+<li><pre>utils/mail.js : nodemailer transporter to send emails to users.</pre</li>
+</ul>
 
 </ol>
