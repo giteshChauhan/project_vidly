@@ -2,12 +2,19 @@ const moment = require("moment");
 const express = require("express");
 const router = express.Router();
 const { validate, History } = require("../models/history");
+const { Movies } = require("../models/movies");
 
 router.get("/", async (req, res) => {
   const userId = req.user._id;
   const history = await History.findOne({ userId });
   if (!history) return res.status(200).send([]);
-  res.status(200).send(history.moviesId);
+  let moviesData = [];
+  for (let movie of history.moviesId) {
+    const id = movie.movieId;
+    const data = await Movies.findById(id);
+    moviesData.push({ movie, data });
+  }
+  res.status(200).send(moviesData);
 });
 
 router.post("/", async (req, res) => {
