@@ -168,8 +168,8 @@ Body: {
 </ul></li>
 <h3>Views & utils:</h3>
 <ul>
-<li><pre>views/welcomeMessage.handlebars : handlebar template sent via email when new user registers'.</pre</li>
-<li><pre>utils/mail.js : nodemailer transporter to send emails to users.</pre</li>
+<li><pre>views/welcomeMessage.handlebars : handlebar template sent via email when new user registers'.</pre></li>
+<li><pre>utils/mail.js : nodemailer transporter to send emails to users.</pre></li>
 </ul>
 
 </ol>
