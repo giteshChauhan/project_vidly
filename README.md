@@ -9,14 +9,14 @@
 
 - Learnings from <b>MERN</b> have been put to this project.
 
-- This is the <i>backend</i> of projectvidly web application build on <b>nodejs</b> which is deployed on <i>digitalOcean</i>.
+- This is the <i>backend</i> of projectvidly web application build on <b>nodejs</b> which was deployed on <i>digitalOcean</i>.
 
-- Meanwhile <i>frontend</i> is build on <b>reactjs</b> which is deployed on <i>netlify</i>: https://projectvidly.netlify.app
+- Meanwhile <i>frontend</i> is build on <b>reactjs</b> which was deployed on <i>netlify</i>
 
 - Also <i>database</i> used: <b>MongoDB Cloud</b> aka <i>Altas</i>
 
 - As backend is deployed on digitalOcean and frontend on netlify, therefore <b>CORS</b> policy is resolved. Now only
-  this https://projectvidly.netlify.app frontend can use our backend
+  this frontend can use our backend
 
 <h3>Config:</h3>Set custom environment variables.
 <pre><ol><li>project_vidly_env=""</li>
